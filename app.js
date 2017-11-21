@@ -1,13 +1,14 @@
 'use strict';
 //GLOBAL VARIABLES
 var productName = ['bag', 'banana','chair', 'bathroom', 'boots','breakfast', 'bubblegum', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep','scissors', 'shark', 'sweep', 'sweepers', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
-var newProductArray = [];
+
+var newProductArray = [];//dear self what is this for?
 var maxClicks = 25;//total number of clicks allowed
 var max = productName.length;//sets max range for randNum function
 var min = 0;//sets min for randNum function
 var clickCounter = 0;//stores number of clicks that have occured
 var width = 200;//sets width of images
-var div = document.getElementById('images');
+var div = document.getElementById('images');//so can wipe out images?
 
 //GlOBAL functions__________________________________________
 //print images
@@ -24,11 +25,15 @@ function printThreeImages () {
   imageEl (productName[arr[2]], width);
 }
 //adding img tag to doc
+// var myImage = new Image(100, 200);
+// myImage.src = 'picture.jpg';
+// document.body.appendChild(myImage);
+
 function imageEl (imgname, width) {
-  var getEl = document.getElementById('images');//where in doc img will be created
-  var myImage = new Image (width);//creating the new image tag
-  myImage.src = 'img/' + imgname + '.jpg';//compiling the file path
-  getEl.appendChild(myImage);//adding the new img path to doc
+  var getEl = document.getElementById('img1');//where in doc img will be created
+  var imgpath = new Image(width);
+  imgpath.src = 'img/' + imgname + '.jpg';//compiling the file path
+  getEl.appendChild(imgpath);//adding the new img path to doc
 }
 
 //getting the random place in the product Array
@@ -107,7 +112,7 @@ function onClick (event) {
   event.preventDefault();
   changeImages();
 }
-var imgEl = document.getElementById('images');
+var imgEl = document.getElementById('image');
 imgEl.addEventListener ('click', onClick);
 
 ///attaching the event listener to the document
