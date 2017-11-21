@@ -1,13 +1,13 @@
 'use strict';
 //GLOBAL VARIABLES
 var productName = ['bag', 'banana','chair', 'bathroom', 'boots','breakfast', 'bubblegum', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep','scissors', 'shark', 'sweep', 'sweepers', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
-var numberOfClicks = 25;
-var max = productName.length;
-var min = 0;
-var totalClicks = 0;
-var width = 200;
+var totalClicks = 25;//total number of clicks allowed
+var max = productName.length;//sets max range for randNum function
+var min = 0;//sets min for randNum function
+var clickCounter = 0;//stores number of clicks that have occured
+var width = 200;//sets width of images
 
-//GlOBAL METHODS
+//GlOBAL functions
 
 //print image to the page
 function imageEl (imgname, width) {
@@ -21,13 +21,7 @@ function randNum (min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// function secondRandNum (array, num) {
-//   array.splice(num, 1);
-// }
-// function thirdRandNum (randNum, secondRand) {
-//  }
-
-
+///attaching the event listener to the document
 function prepareEventListener () {
   var getDivEl = document.getElementById('images');
   //var getImageTag = getDivEl.getElementsByTagName('img');//do I need this line?
@@ -36,16 +30,15 @@ function prepareEventListener () {
 
 //OBJECT CONSTRUCTOR
 function Product (name) {
-  this.name = productName [i];
-  this.shown = 0;
-  this.clicked = 0;
-}
-
+  this.name = name;//will take in argument "name" and store here
+  this.shown = 0;//counts number of times this object was displayed
+  this.clicked = 0;//counts number of times this object was clicked on
 //OBJECT METHODS
 
 getRandomIndex: function() {
   for (i=0; i < 3; i++) {
   var firstnum = randNum (min, max);
+}
 },
 
 //displays 3 images from productName Array and adds to page, may be duplicates.  I plan use Array.splice to remove the numbers that have already been shown from the productName array.
@@ -73,7 +66,7 @@ onClick: function() {
   for (i=0; i < 3; i++) {
       //show image at random index
   }
-
+}
 };
 
 
