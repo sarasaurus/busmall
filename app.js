@@ -52,12 +52,30 @@ function Product (name) {
   newProductArray.push(this);
 }
 
-//writing anonymous function: defining and executing a funciton I jsut want this to happen on page load and run, never again
+//writing anonymous function: defining and executing a function where I want this to happen on page load and run, but never again, wrapping in funciton also protects the global variable space
 (function() {
   for(var i in productName){
     new Product(productName[i]);
   }
 })();
+//Now would build a tracker object:
+var tracker = {
+  imagesEl: document.getElementById('images'),
+  resultsEl: document.getElementById('results'),
+  img1: new Image(width),
+  img2: new Image(width),
+  img3: new Image(width),
+
+  //now make a method to display the images, he uses all methods, mine is a global function...
+  displayImages: function() {
+    imageOne.src = productName[randNum()].path;
+    imageTwo.src = productName[randNum()].path;
+    imageTwo.src = productName[randNum()].path;
+
+    //now attach all three to imagesEl
+
+  }
+};
 
 //OBJECT METHODS
 //displays 3 random images and stores their index number in an array
@@ -116,7 +134,7 @@ function onClick (event) {
   event.preventDefault();
   changeImages();
 }
-var imgEl = document.getElementById('image');
+var imgEl = document.getElementById('images');
 imgEl.addEventListener ('click', onClick);
 
 ///attaching the event listener to the document
