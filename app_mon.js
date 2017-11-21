@@ -8,6 +8,7 @@ var max = productName.length;//sets max range for randNum function
 var min = 0;//sets min for randNum function
 var clickCounter = 0;//stores number of clicks that have occured
 var width = 200;//sets width of images
+var div = document.getElementById('images');//so can wipe out images?
 
 //GlOBAL functions__________________________________________
 //print images
@@ -23,6 +24,10 @@ function printThreeImages () {
   imageEl (productName[arr[1]], width, 'imageTwo');
   imageEl (productName[arr[2]], width, 'imageThree');
 }
+//adding img tag to doc
+// var myImage = new Image(100, 200);
+// myImage.src = 'picture.jpg';
+// document.body.appendChild(myImage);
 
 function imageEl (imgname, width, id) {
   var getEl = document.getElementById(id);//where in doc img will be created
@@ -89,7 +94,35 @@ Product.prototype.getRandomIndex = function() {
   document.write(arr);
 },
 
-///EVENT OBJECT
+//displays 3 images from productName Array and adds to page, may be duplicates.  I plan use Array.splice to remove the numbers that have already been shown from the productName array.
+
+
+// Product.prototype.countClicks = function() {
+// for (var i = 0; i < maxClicks; i++) {
+//     this.tallyClicks.push (1);
+//     this.tallyClicks += this.tallyClicks;
+//   }
+// },
+
+// //to show in the sidebar list at the end
+// displayResults: function() {
+//   // TODO: Hmm... what's going to happen here?
+// },
+// //change button once the click tally threshold is reached
+// showButton: function() {
+//   // TODO: Hmm... what's going to happen here?
+// },
+//
+// onClick: function() {
+//   printThreeImages();
+//
+//   }
+// },
+// };
+
+
+
+//EVENT OBJECT
 //when imgs are clicked:
 //add one to the specific obj's click tally
 //add one to the global click tally
@@ -99,15 +132,10 @@ Product.prototype.getRandomIndex = function() {
 //LOL i am using this, but will now try to put inside my tracker object
 printThreeImages();
 function changeImages () {
-  var divOne =  document.getElementById('imageOne');
-  var divTwo = document.getElementById('imageTwo');
-  var divThree = document.getElementById('imageThree');
-  divOne.innerHTML = '';
-  divTwo.innerHTML = '';
-  divThree.innerHTML = '';
+  div.innerHTML = '';
+  printThreeImages();
 
 }
-
 
 function onClick (event) {
   event.preventDefault();//no need for prevent default in this case, because click is on image, doesn't hurt to do
@@ -121,8 +149,7 @@ function onClick (event) {
   //for (var i in allProducts)
   changeImages();
   //could put in if /else for clicking on images, but no need with images at sme size
-  printThreeImages();
-}
+};
 
 var imgEl = document.getElementById('images');//what element is being listened to
 imgEl.addEventListener ('click', onClick);//what funciton (click) is attached, onClick is the function I am defining that will be triggered upon each event

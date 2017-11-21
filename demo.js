@@ -1,5 +1,6 @@
 var allProducts = [];
-var productNames = ['boots', 'chair', 'scissors']; // TODO: see the pattern here, and what you need to fill in?
+var productNames = ['bag', 'banana','chair', 'bathroom', 'boots','breakfast', 'bubblegum', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep','scissors', 'shark', 'sweep', 'sweepers', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
+
 
 function Product(name, path) {
   // TODO: Build your constructor and necessary properties.
@@ -33,7 +34,7 @@ var productRank = {
 
   onClick: function() {
     // TODO: Hmm... what's going to happen here?
-};
+}
 
 productRank.imageEls.addEventListener('click', productRank.onClick);
 productRank.displayImages();
