@@ -11,7 +11,6 @@ var div = document.getElementById('images');
 
 //GlOBAL functions__________________________________________
 //print images
-
 function printThreeImages () {
   var arr = [];
   while(arr.length < 3){
@@ -24,13 +23,14 @@ function printThreeImages () {
   imageEl (productName[arr[1]], width);
   imageEl (productName[arr[2]], width);
 }
-
+//adding img tag to doc
 function imageEl (imgname, width) {
   var getEl = document.getElementById('images');//where in doc img will be created
   var myImage = new Image (width);//creating the new image tag
   myImage.src = 'img/' + imgname + '.jpg';//compiling the file path
   getEl.appendChild(myImage);//adding the new img path to doc
 }
+
 //getting the random place in the product Array
 function randNum (min, max) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -94,19 +94,22 @@ for (var i = 0; i < maxClicks; i++) {
 //add one to the global click tally
 //add one to all 3 obj's shown tally
 //finally refresh all 3 images
+
 printThreeImages();
-function onClick(event) {
-  event.preventDefault();
-  printThreeImages();
+function changeImages () {
   div.innerHTML = '';
   printThreeImages();
-};
-///attaching the event listener to the document
-function prepareEventListener () {
-  var getDivEl = document.getElementById('images');
-  //var getImageTag = getDivEl.getElementsByTagName('img');//do I need this line?
-  getDivEl.addEventListener('click', onClick);
 }
+
+function onClick (event) {
+  event.preventDefault();
+  changeImages();
+}
+var imgEl = document.getElementById('images');
+imgEl.addEventListener ('click', onClick);
+
+///attaching the event listener to the document
+
 
 
 
