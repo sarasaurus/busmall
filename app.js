@@ -30,8 +30,8 @@ function printThreeImages () {
 // document.body.appendChild(myImage);
 
 function imageEl (imgname, width) {
-  var getEl = document.getElementById('img1');//where in doc img will be created
-  var imgpath = new Image(width);
+  var getEl = document.getElementById('images');//where in doc img will be created
+  var imgpath = new Image (width);
   imgpath.src = 'img/' + imgname + '.jpg';//compiling the file path
   getEl.appendChild(imgpath);//adding the new img path to doc
 }
