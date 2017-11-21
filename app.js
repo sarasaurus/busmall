@@ -41,6 +41,7 @@ function randNum (min, max) {
 //OBJECT CONSTRUCTOR_______________________________________
 function Product (name) {
   this.name = name;//will take in argument "name" and store here
+  this.path.src = 'img/' + name + '.jpg';
   this.shown = 0;//counts number of times this object was displayed
   this.clicked = 0;//counts number of times this object was clicked on
 }
@@ -50,6 +51,7 @@ function Product (name) {
 
 
 //OBJECT METHODS
+//displays 3 random images and stores their index number in an array
 Product.prototype.getRandomIndex = function() {
   var arr = [];
   while(arr.length < 3){
