@@ -131,7 +131,8 @@ function changeImages () {
 }
 
 function onClick (event) {
-  event.preventDefault();
+  event.preventDefault();//no need for prevent default in this case, because click is on image, doesn't hurt to do
+  console.log(event.target);
   changeImages();
 }
 var imgEl = document.getElementById('images');
