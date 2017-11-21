@@ -46,15 +46,18 @@ function randNum (min, max) {
 //OBJECT CONSTRUCTOR_______________________________________
 function Product (name) {
   this.name = name;//will take in argument "name" and store here
-  this.path.src = 'img/' + name + '.jpg';
+  this.path = 'img/' + name + '.jpg';
   this.shown = 0;//counts number of times this object was displayed
   this.clicked = 0;//counts number of times this object was clicked on
   newProductArray.push(this);
 }
 
-//this must be for the list at the end
-//var productRank = {
-
+//writing anonymous function: defining and executing a funciton I jsut want this to happen on page load and run, never again
+(function() {
+  for(var i in productName){
+    new Product(productName[i]);
+  }
+})();
 
 //OBJECT METHODS
 //displays 3 random images and stores their index number in an array
