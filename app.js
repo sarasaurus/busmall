@@ -49,6 +49,7 @@ function Product (name) {
   this.path.src = 'img/' + name + '.jpg';
   this.shown = 0;//counts number of times this object was displayed
   this.clicked = 0;//counts number of times this object was clicked on
+  newProductArray.push(this);
 }
 
 //this must be for the list at the end
