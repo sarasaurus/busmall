@@ -7,10 +7,11 @@ var max = productName.length;//sets max range for randNum function
 var min = 0;//sets min for randNum function
 var clickCounter = 0;//stores number of clicks that have occured
 var width = 200;//sets width of images
+var div = document.getElementById('images');
 
 //GlOBAL functions__________________________________________
+//print images
 
-//print image to the page
 function printThreeImages () {
   var arr = [];
   while(arr.length < 3){
@@ -35,12 +36,7 @@ function randNum (min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-///attaching the event listener to the document
-function prepareEventListener () {
-  var getDivEl = document.getElementById('images');
-  //var getImageTag = getDivEl.getElementsByTagName('img');//do I need this line?
-  getDivEl.addEventListener('click', onClick);
-}
+
 
 //OBJECT CONSTRUCTOR_______________________________________
 function Product (name) {
@@ -98,11 +94,19 @@ for (var i = 0; i < maxClicks; i++) {
 //add one to the global click tally
 //add one to all 3 obj's shown tally
 //finally refresh all 3 images
-
-function onClick (event) {
+printThreeImages();
+function onClick(event) {
   event.preventDefault();
   printThreeImages();
+  div.innerHTML = '';
+  printThreeImages();
 };
+///attaching the event listener to the document
+function prepareEventListener () {
+  var getDivEl = document.getElementById('images');
+  //var getImageTag = getDivEl.getElementsByTagName('img');//do I need this line?
+  getDivEl.addEventListener('click', onClick);
+}
 
 
 
