@@ -146,38 +146,3 @@ function onClick (event) {
 
 var imgEl = document.getElementById('images');//what element is being listened to
 imgEl.addEventListener ('click', onClick);//what funciton (click) is attached, onClick is the function I am defining that will be triggered upon each event
-
-///attaching the event listener to the document
-
-
-
-
-//select firstImage at random place in Array
-//store random number used?
-//select secondImage at random place (minus firstImages place)
-//sect thirdImage at random place (minus first, minus secondImages place)
-
-//}
-
-//internet code I'm trying to understand:
-// var img = new Array(21);
-// for(var i = 0; i < 21; i++){
-//   img[i] = new Image ();
-//   img[i].src = 'img/' + imageName[i] + '.jpg'; }
-// var myImage = new Image(100, 200);
-// myImage.src = 'picture.jpg';
-// document.body.appendChild(myImage);
-//
-// for (var i = 0; i < array.length; i++) {
-// name[i].src = folder + name[i] + ending; }
-
-
-//____________________________FUNCTION CALLS________________________
-//Make all the objects
-// var createProducts = function (){
-//   for (var i = 0; i < productName.length; i++) {
-//     console.log('i is:', i)
-//     new Product(productName[i]);
-//   }
-// };
-// createProducts();
