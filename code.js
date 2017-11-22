@@ -1,6 +1,15 @@
 
 //these are my global variables
-
+/GLOBAL VARIABLES
+var productName = ['bag', 'banana','chair', 'bathroom', 'boots','breakfast', 'bubblegum', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep','scissors', 'shark', 'sweep', 'sweepers', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
+var newProductArray = [];//storing place of all our new product objects
+var voteCounter = [];
+var maxClicks = 25;//total number of clicks allowed
+var max = productName.length;//sets max range for randNum function
+var min = 0;//sets min for randNum function
+var clickCounter = 0;//stores number of clicks that have occured
+var width = 200;//sets width of images
+///global functions
 function printThreeImages () {
   var arr = [];
   while(arr.length < 3){

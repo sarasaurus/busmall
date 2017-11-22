@@ -104,14 +104,26 @@ function onClick (event) {
     console.log('clicks: ', clickCounter);
     var clickedImageNameArray = event.target.src.split('/');
     console.log('Clicked Name Array: ', clickedImageNameArray);
-    var clickedImageName = clickedImageNameArray.slice(10);
-    console.log('clicked name bb!: ', clickedImageName);
-    voteCounter.push(event.target.src);
 
+    var clickedImagePath = clickedImageNameArray.slice(10);
+    console.log('clicked image path: ', clickedImagePath);
+
+    var clickedImagePathSplit = clickedImagePath[0].split('.');
+    console.log('clicked image split', clickedImagePathSplit);
+
+    var clickedImageName = clickedImagePathSplit.slice(0)[0];
+    console.log('clicked name bb!: ', clickedImageName);
+    voteCounter.push(clickedImageName);
+
+    for (var i in newProductArray) {
+      if(clickedImageName === newProductArray[i].name) {
+        newProductArray[i].clicked++;
+      }
+    }
+  } else {
+    var divResults = document.getElementById('results');
+    divResults.appendChild('p');
   }
-else {
-    console.log('else ran')
-}
 }
 
 var imgEl = document.getElementById('images');//what element is being listened to
