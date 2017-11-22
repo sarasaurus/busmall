@@ -1,8 +1,8 @@
 'use strict';
 //GLOBAL VARIABLES
 var productName = ['bag', 'banana','chair', 'bathroom', 'boots','breakfast', 'bubblegum', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep','scissors', 'shark', 'sweep', 'sweepers', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
-
 var newProductArray = [];//storing place of all our new product objects
+var voteCounter = [];
 var maxClicks = 25;//total number of clicks allowed
 var max = productName.length;//sets max range for randNum function
 var min = 0;//sets min for randNum function
@@ -51,43 +51,26 @@ function Product (name, path) {
   for(var i in productName){
     new Product(productName[i]);
   }
-})();
+})();//this function creates my product iterations, using this template and they are then stored in my newProductArray
 
 
 //Now build a tracker object, this will keep track of big picture info--click tallies and product votes.  This will also display images to page and handle event object functionality
 
 var tracker = {
-  imagesEl: document.getElementById('images'),//this is where I want to plnt img code
-  resultsEl: document.getElementById('results'),//this is where I will plant result data
+//what if my tracker is only for storing data? does that make sense?
 
-
-
-
-  // //now make a method to display the images, he uses all methods, mine is a global function...
-  // img1: new Image(width),
-  // img2: new Image(width),
-  // img3: new Image(width),
-  // displayImages: function() {
-  //   imageOne.src = productName[randNum()].path;
-  //   imageTwo.src = productName[randNum()].path;
-  //   imageTwo.src = productName[randNum()].path;
-  //
-  //   //now attach all three to imagesEl
-  //
-  // }
-};
 
 //OBJECT METHODS
 //displays 3 random images and stores their index number in an array
-Product.prototype.getRandomIndex = function() {
-  var arr = [];
-  while(arr.length < 3){
-    var randomnumber = randNum(min,max);
-    if(arr.indexOf(randomnumber) > -1) continue;
-    arr[arr.length] = randomnumber;
-  }
-  document.write(arr);
-},
+// Product.prototype.getRandomIndex = function() {
+//   var arr = [];
+//   while(arr.length < 3){
+//     var randomnumber = randNum(min,max);
+//     if(arr.indexOf(randomnumber) > -1) continue;
+//     arr[arr.length] = randomnumber;
+//   }
+//   document.write(arr);
+// },
 
 ///EVENT OBJECT
 //when imgs are clicked:
@@ -95,7 +78,7 @@ Product.prototype.getRandomIndex = function() {
 //add one to the global click tally
 //add one to all 3 obj's shown tally
 //finally refresh all 3 images
-
+};
 //LOL i am using this, but will now try to put inside my tracker object
 printThreeImages();
 function changeImages () {
@@ -105,23 +88,23 @@ function changeImages () {
   divOne.innerHTML = '';
   divTwo.innerHTML = '';
   divThree.innerHTML = '';
-
 }
 
 
 function onClick (event) {
   event.preventDefault();//no need for prevent default in this case, because click is on image, doesn't hurt to do
   console.log(event.target);//logs which image was clicked on
-  clickCounter ++;//adds a tally to my global click counter
-  console.log('Clicks: ', clickCounter);
-  // for(var i in productName) {
-  //       if(event.target === newProductArray[i].name) {
-  //         newProductArray[i].clicks++;
-  //       }
-  //for (var i in allProducts)
-  changeImages();
-  //could put in if /else for clicking on images, but no need with images at sme size
-  printThreeImages();
+  //adds a tally to my global click counter
+  if (clickCounter < 25) {
+    changeImages();
+    printThreeImages();
+    clickCounter ++;
+    console.log('clicks: ', clickCounter);
+    voteCounter.push(event.target);
+  }
+else {
+    console.log('else ran')
+}
 }
 
 var imgEl = document.getElementById('images');//what element is being listened to
