@@ -99,7 +99,7 @@ function onClick (event) {
   event.preventDefault();//no need for prevent default in this case, because click is on image, doesn't hurt to do
   console.log(event.target);//logs which image was clicked on
   //adds a tally to my global click counter
-  if (clickCounter < 25) {
+  if (clickCounter < maxClicks) {
 
 
     changeImages();
