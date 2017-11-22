@@ -22,6 +22,9 @@ function printThreeImages () {
   imageEl (productName[arr[0]], width, 'imageOne');
   imageEl (productName[arr[1]], width, 'imageTwo');
   imageEl (productName[arr[2]], width, 'imageThree');
+  for (var i = 0;i < 3; i++ ) {
+    newProductArray[arr[i]].shown++;
+  }
 }
 
 function imageEl (imgname, width, id) {
@@ -122,6 +125,7 @@ function onClick (event) {
     }
   } else {
     var divResults = document.getElementById('results');
+    //create element
     divResults.appendChild('p');
   }
 }
