@@ -99,7 +99,7 @@ function onClick (event) {
   event.preventDefault();//no need for prevent default in this case, because click is on image, doesn't hurt to do
   console.log(event.target);//logs which image was clicked on
   //adds a tally to my global click counter
-  if (clickCounter < 25) {
+  if (clickCounter < maxClicks) {
 
 
     changeImages();
@@ -127,10 +127,13 @@ function onClick (event) {
   } else {
 
     console.log('YOU DONE WITH CLICKING NOW')
-
-    alert('Game Over');
+    //could also remove the event listener from my images and keep them there
+    // it appears I did not use the object so for me:
+      alert('Game Over');
     var div =  document.getElementById('images');
     div.innerHTML = '';
+    //div.removeEventListener(onClick);
+    //this created new problems for me though
 
     var ctx = document.getElementById('myChart').getContext('2d');
 
