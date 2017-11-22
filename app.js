@@ -124,9 +124,23 @@ function onClick (event) {
       }
     }
   } else {
-    var divResults = document.getElementById('results');
-    //create element
-    divResults.appendChild('p');
+
+    console.log('YOU DONE WITH CLICKING NOW')
+
+    alert('Game Over');
+    var div =  document.getElementById('images');
+    div.innerHTML = '';
+    document.write('THE VOTES WILL BE TALLIED');
+    //NOT WORKING :(
+    // var divResults = document.getElementById('results');
+    // var ulEl = document.createElement('ul');
+    // divResults.appendChild(ulEl);
+    //
+    // for (var j = 0; j < productName.length; j++) {
+    //   var liEl = ulEl.createElement('li');
+    //   liEl.textContent = newProductArray[j].name;
+    //   ulEl.appendChild(liEl);
+    // }
   }
 }
 
