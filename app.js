@@ -130,7 +130,7 @@ function onClick (event) {
     alert('Game Over');
     var div =  document.getElementById('images');
     div.innerHTML = '';
-    document.write('THE VOTES WILL BE TALLIED');
+
     //NOT WORKING :(
     // var divResults = document.getElementById('results');
     // var ulEl = document.createElement('ul');
