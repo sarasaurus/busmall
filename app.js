@@ -96,11 +96,18 @@ function onClick (event) {
   console.log(event.target);//logs which image was clicked on
   //adds a tally to my global click counter
   if (clickCounter < 25) {
+
+
     changeImages();
     printThreeImages();
     clickCounter ++;
     console.log('clicks: ', clickCounter);
-    voteCounter.push(event.target);
+    var clickedImageNameArray = event.target.src.split('/');
+    console.log('Clicked Name Array: ', clickedImageNameArray);
+    var clickedImageName = clickedImageNameArray.slice(10);
+    console.log('clicked name bb!: ', clickedImageName);
+    voteCounter.push(event.target.src);
+
   }
 else {
     console.log('else ran')
