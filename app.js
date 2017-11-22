@@ -131,16 +131,10 @@ function onClick (event) {
     var div =  document.getElementById('images');
     div.innerHTML = '';
 
-    //NOT WORKING :(
+    // //NOT WORKING :(
     // var divResults = document.getElementById('results');
-    // var ulEl = document.createElement('ul');
-    // divResults.appendChild(ulEl);
-    //
-    // for (var j = 0; j < productName.length; j++) {
-    //   var liEl = ulEl.createElement('li');
-    //   liEl.textContent = newProductArray[j].name;
-    //   ulEl.appendChild(liEl);
-    // }
+    // var canvasEl = document.createElement('canvas');
+    // divResults.appendChild(canvasEl);
   }
 }
 
