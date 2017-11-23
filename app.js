@@ -10,7 +10,23 @@ var min = 0;//sets min for randNum function
 var clickCounter = 0;//stores number of clicks that have occured
 var width = 200;//sets width of images
 
+
 //GlOBAL functions__________________________________________
+function setData () {
+  localStorage.clear;
+  var data = JSON.stringify(newProductArray);//taking info from current storage
+  localStorage.setItem('stored data', data);//putting into local
+}
+function getData () {
+  var storedProductArray = JSON.parse(localStorage.getItem('stored data'));//getlocal data
+  console.log('local array: ', storedProductArray);
+  if(storedProductArray !== null) {//if there's info in local storage..
+    newProductArray = storedProductArray;//set current storage of newProductArray to the locally stored array
+  }
+}
+
+
+
 function createChart () {
   var ctx = document.getElementById('myChart').getContext('2d');
   var options = {
@@ -159,13 +175,11 @@ function changeImages () {
   divThree.innerHTML = '';
 }
 
-
 function onClick (event) {
   event.preventDefault();//no need for prevent default in this case, because click is on image, doesn't hurt to do
   console.log(event.target);//logs which image was clicked on
   //adds a tally to my global click counter
   if (clickCounter < maxClicks) {
-
     changeImages();
     printThreeImages();
     clickCounter ++;
@@ -191,14 +205,24 @@ function onClick (event) {
   } else {
 
     console.log('YOU DONE WITH CLICKING NOW')
-
-    alert('Game Over');
     var div =  document.getElementById('images');
     div.innerHTML = '';
-    createChart ();
+    alert('Game Over!');
+    setData();
+    createChart();
+    var textEl = document.createElement('h1');
+    var newText = document.createTextNode('Your Results:')
+    var newPar = document.createElement('p')
+    var newParText = document.createTextNode('Refresh the page to restart and add your results to the tally!');
+    newPar.appendChild(newParText);
+    textEl.appendChild(newPar);
+    textEl.appendChild(newText);
+    div.appendChild(textEl);
+
 
   }
 }
-
 var imgEl = document.getElementById('images');//what element is being listened to
 imgEl.addEventListener ('click', onClick);//what funciton (click) is attached, onClick is the function I am defining that will be triggered upon each event
+getData();
+createChart ();
