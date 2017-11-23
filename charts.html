@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bus Mall</title>
+<title>Charts!</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
 <nav>
 <div class="left">
-        <h1>CLICK THE IMAGE YOU LIKE</h1>
+        <h1>Charts and Data</h1>
 </div>
 <div class="right">
   <ul id="menu">
@@ -30,28 +30,21 @@
 </nav>
 </header>
 <main>
-<section>
-  <div id ="images">
-    <div id="imageOne">
+<div id ="clicks">
+  <h1>Click Totals</h1>
+  <canvas id="myChart" width="700" height="400"></canvas>
+</div>
 
-    </div>
-    <div id="imageTwo">
-
-    </div>
-    <div id="imageThree">
-
-    </div>
-  </div>
-  <div id ="results">
-    <h1 id="description"></h1>
-<canvas id="myChart" width="700" height="400"></canvas>
-  </div>
+<div id = "shown">
+  <h1>Shown Totals</h1>
+  <canvas id="shownTotalChart" width="700" height="400"></canvas>
+</div>
 </section>
 </main>
 <footer>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
-<script src="app.js"></script>
+<script src="charts-app.js"></script>
 </body>
 
 </html>
