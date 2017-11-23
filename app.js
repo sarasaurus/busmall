@@ -15,7 +15,7 @@ var width = 200;//sets width of images
 function setData () {
   localStorage.clear;
   var data = JSON.stringify(newProductArray);//taking info from current storage
-  localStorage.setItem('stored data', data);//putting into local
+  localStorage.setItem('stored data', data);//putting into local storage
 }
 function getData () {
   var storedProductArray = JSON.parse(localStorage.getItem('stored data'));//getlocal data
