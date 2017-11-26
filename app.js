@@ -161,9 +161,9 @@ function Product (name, path) {
 
 //Now build a tracker object, this will keep track of big picture info--click tallies and product votes.  This will also display images to page and handle event object functionality
 
-var tracker = {
-
-};
+// var tracker = {
+//
+// };
 
 printThreeImages();
 function changeImages () {
@@ -187,7 +187,7 @@ function onClick (event) {
     var clickedImageNameArray = event.target.src.split('/');
     console.log('Clicked Name Array: ', clickedImageNameArray);
 
-    var clickedImagePath = clickedImageNameArray.slice(10);
+    var clickedImagePath = clickedImageNameArray.slice(5);
     console.log('clicked image path: ', clickedImagePath);
 
     var clickedImagePathSplit = clickedImagePath[0].split('.');
