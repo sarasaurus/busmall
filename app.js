@@ -187,7 +187,7 @@ function onClick (event) {
     var clickedImageNameArray = event.target.src.split('/');
     console.log('Clicked Name Array: ', clickedImageNameArray);
 
-    var clickedImagePath = clickedImageNameArray.slice(5);
+    var clickedImagePath = clickedImageNameArray.slice(clickedImageNameArray.length - 1);
     console.log('clicked image path: ', clickedImagePath);
 
     var clickedImagePathSplit = clickedImagePath[0].split('.');
